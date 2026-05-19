@@ -1,4 +1,12 @@
-**Theorem.** The set of natural numbers that equal the sum of the factorials of their own decimal digits is exactly $\{1, 2, 145, 40585\}$. That is, defining $f(n) = \sum_{d \,\in\, \text{digits}(n)} d!$, we have
-$$\{\, n \in \mathbb{N} \mid n = f(n) \,\} = \{1,\, 2,\, 145,\, 40585\}.$$
+**Theorem.** The set of natural numbers equal to their own digit factorial sum is exactly $\{1, 2, 145, 40585\}$. That is,
+$$\{\, n \in \mathbb{N} \mid n = \sigma(n) \,\} = \{1,\, 2,\, 145,\, 40585\},$$
+where $\sigma(n)$ denotes the sum of the factorials of the decimal digits of $n$.
 
-*Proof.* Unsolved.
+*Proof.* We show the two sets are equal by proving mutual membership.
+
+$(\subseteq)$ Let $n \in \mathbb{N}$ satisfy $n = \sigma(n)$. We split into two cases.
+
+- If $n \geq 10^7$, then by \textbf{Upper Bound} the value $\sigma(n)$ is strictly less than $n$, so $n \neq \sigma(n)$, a contradiction.
+- If $n < 10^7$, then by \textbf{Finite Check} the equivalence $n = \sigma(n) \iff n \in \{1, 2, 145, 40585\}$ holds in this bounded range, so $n \in \{1, 2, 145, 40585\}$.
+
+$(\supseteq)$ Let $n \in \{1, 2, 145, 40585\}$. Each of these values satisfies $n < 10^7$ by direct verification. Applying \textbf{Finite Check} in the reverse direction, the membership $n \in \{1, 2, 145, 40585\}$ implies $n = \sigma(n)$, so $n$ belongs to the left-hand set. $\blacksquare$
